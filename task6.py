@@ -11,3 +11,14 @@ G(n) = G(n - 4) + n, если n > 25
 """
 
 # Решение будет здесь
+
+
+G=[]
+num=150774
+for n in range(num):
+    if n < 25:
+        G.append(2 * (n + 1))
+    else:
+        G.append(G[n - 4] + n)
+
+print(G[num-1]-G[num-5])

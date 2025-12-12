@@ -11,3 +11,13 @@ F(n) = n / 2 + F(n - 1) + 2 при n > 1 и n — чётно
 """
 
 # Решение будет здесь
+
+F=[0, 0]
+num=49
+for n in range(2, num+1):
+    if n%2==0:
+        F.append(n//2 + F[n-1] + 2)
+    else:
+        F.append(F[n - 1] + 3*n**2)
+
+print(F[49])
