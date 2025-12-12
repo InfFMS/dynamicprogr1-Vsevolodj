@@ -9,3 +9,18 @@
 """
 
 # Решение будет здесь
+list=[[20]]
+count=0
+while min(list[-1])<30:
+    last=list[-1]*3
+    line=len(last)
+    for i in range(line):
+        if i<line//3:
+            last[i]+=1
+        elif i<2*line//3:
+            last[i]+=2
+        else:
+            last[i] += 4
+    list.append(last)
+    count+=last.count(30)
+print(count)

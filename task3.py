@@ -16,3 +16,26 @@ GRID = [
 ]
 
 # Решение будет здесь
+step=[
+    [10, 0, 0, 0],
+    [0]*4,
+    [0]*4,
+    [0]*4
+]
+# идти по диагонали
+x=0
+y=0
+n, m = 4, 4
+dp = [[0] * m for _ in range(n)]
+dp[0][0] = GRID[0][0]
+
+for j in range(1, m):
+    dp[0][j] = dp[0][j - 1] + GRID[0][j]
+for i in range(1, n):
+    dp[i][0] = dp[i - 1][0] + GRID[i][0]
+
+for i in range(1, n):
+    for j in range(1, m):
+        dp[i][j] = GRID[i][j] + min(dp[i - 1][j], dp[i][j - 1])
+
+print(dp[n - 1][m - 1])
