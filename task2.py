@@ -14,3 +14,24 @@
 PRICE = [0, 1, 2, 1, 3, 1, 2, 1, 3, 1, 2, 1, 3, 1, 2, 1] 
 
 # Решение будет здесь
+def f(n, s, path = []):
+    # print(n, s)
+    if n < 12:
+        s1 = f(n+1, s + PRICE[n+1], path+[n+1])
+        s2 = f(n+2, s + PRICE[n+2], path+[n+2])
+        s3 = f(n+4, s + PRICE[n+4], path+[n+4])
+        # s1 = s + f
+        return min(s1, s2, s3)
+    elif n < 14:
+        s1 = f(n+1, s + PRICE[n+1], path+[n+1])
+        s2 = f(n+2, s + PRICE[n+2], path+[n+2])
+        return min(s1, s2)
+    elif n == 14:
+        return f(n+1, s + PRICE[n+1], path+[n+1])
+    # return
+
+    elif n==15:
+        # print("path:",path, s+PRICE[15])
+        return s
+    return -1
+print(f(0, 0))
